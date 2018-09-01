@@ -3,8 +3,6 @@ package com.eintrusty;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.ws.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eintrusty.constant.VariableConstant;
+import com.eintrusty.dto.UserDto;
 import com.eintrusty.model.DataResponse;
 import com.eintrusty.service.IUserLoginService;
 import com.eintrusty.utility.StringUtility;
-import com.eintrusty.model.*;
-import com.eintrusty.dto.*;
 @RestController
 public class UserLoginController {
 

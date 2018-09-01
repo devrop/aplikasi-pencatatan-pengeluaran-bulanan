@@ -1,28 +1,13 @@
 package com.eintrusty.utility;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Base64;
-import java.util.Base64.Decoder;
-import java.util.Base64.Encoder;
-import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import javax.crypto.spec.SecretKeySpec;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 
-import org.assertj.core.internal.bytebuddy.description.type.TypeVariableToken;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.eintrusty.dto.UserDto;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 public class StringUtility{
 	private final static String key ="qwvbhKhtYhnfrtJk";
