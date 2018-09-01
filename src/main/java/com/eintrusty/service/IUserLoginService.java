@@ -11,5 +11,7 @@ public interface IUserLoginService {
 	int delete(String idUser);
 	UserDto findOneUser(String idUser);
 	Map<String,String> saveUser(UserDto userFto);
+	UserDto getAtiveUser(UserDto user);
+	
 	
 }

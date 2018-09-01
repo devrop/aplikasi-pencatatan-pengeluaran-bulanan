@@ -84,6 +84,7 @@ public class UserLoginService implements IUserLoginService {
 	@Override
 	public UserDto findOneUser(String idUser) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -108,6 +109,24 @@ public class UserLoginService implements IUserLoginService {
 			return errorMessage;
 		}
 
+	}
+
+	@Override
+	public UserDto getAtiveUser(UserDto user) {
+		// TODO Auto-generated method stub
+		try{
+			List<UserLogin> listUserLogin = userLoginRepository.getActiveUser(user.getUsername(), user.getPassword());
+			UserDto userDto = null;
+			if(listUserLogin.size() > 0){
+				userDto = new UserDto();
+				UserLogin userLogin = listUserLogin.get(0);
+				userDto.setUsername(userLogin.getUsername());
+				userDto.setRole(userLogin.getRole());
+			}
+			return userDto;
+		}catch(Exception e){
+		  return null;
+		}
 	}
 
 }
