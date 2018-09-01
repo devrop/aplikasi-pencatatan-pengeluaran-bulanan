@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eintrusty.constant.VariableConstant;
 import com.eintrusty.model.DataResponse;
 import com.eintrusty.service.IUserLoginService;
+import com.eintrusty.utility.StringUtility;
 import com.eintrusty.model.*;
 import com.eintrusty.dto.*;
 @RestController
@@ -28,8 +29,10 @@ public class UserLoginController {
 			List<UserDto> listdto = userService.listUser();
 			DataResponse response = new DataResponse();
 			response.setMessage(VariableConstant.MESSAGESTATUSOK);
-			response.setDataResponse(listdto);
 			
+			String encrypted = StringUtility.DataListToStringEncrypted(listdto);
+			//response.setDataResponse(listdto);
+			response.setDataResponse(encrypted);
 			return new ResponseEntity<DataResponse>(response, HttpStatus.OK);
 		}catch(Exception e){
 			String errorException = VariableConstant.MESSAGESTATUSERROR + "  : " + e.getMessage();

@@ -2,13 +2,18 @@ package com.eintrusty.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
 
-	
+	@JsonProperty("id")
 	private String id;
+	@JsonProperty("username")
 	private String username;
+	@JsonProperty("password")
 	private String password;
 	private String role;
 	private String enabled;

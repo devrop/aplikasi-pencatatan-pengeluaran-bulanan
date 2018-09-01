@@ -2,9 +2,12 @@ package com.eintrusty.utility;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
+import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +16,15 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.xml.bind.DatatypeConverter;
 
-public class StringUtility {
+import org.assertj.core.internal.bytebuddy.description.type.TypeVariableToken;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.eintrusty.dto.UserDto;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+public class StringUtility{
 	private final static String key ="qwvbhKhtYhnfrtJk";
 	//private final SecretKey secretKey =  new SecretKeySpec(key.getBytes("UTF-8"), "AES");
 	private static final Base64.Encoder encoder = Base64.getUrlEncoder();;
@@ -75,6 +86,33 @@ public class StringUtility {
 	private static String toHexString(byte[] array) {
 	    return DatatypeConverter.printHexBinary(array).toLowerCase();
 	}
+	
+	public static String DataListToStringEncrypted(Object object){
+		try{
+		  Gson gson = new Gson();
+		 String jsonData = gson.toJson(object);
+		 
+		 return encrypt(jsonData.toString());
+		}catch(Exception e){
+			return null;
+		}
+	}
+	//public static <T> List<T> StringToList(String s, Class<T> classOfT){
+		//System.out.println(s);
+		//Gson gson  = new Gson();
+		//JSONObject json = new JSONObject();
+		//json.get(s);
+		//System.out.println("ok" + E);
+		//Object objectData = gson.
+		//TypeToken type = new TypeVariableToken(symbol, bounds)
+		///ObjectMapper objectMapper = new ObjectMapper().copy();
+        //List<E> list = objectMapper.readValue(s, classOfT);
+		//List<T> newList = gson.fromJson(s, new TypeToken<List<T>>(){}.getType());
+		//gson.fromJson(s,UserDto.class);
+		//return list;
+	//}
+	//}
+
 }
 	
 	
