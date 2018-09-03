@@ -2,14 +2,27 @@ package com.eintrusty.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="TABLE_EXPENDITURE_HEADER")
 public class ExpenditureHeader {
 	
+	@Id
+	@Column(name="ID_HEADER")
 	private String idHeader;
+	@Column(name="INCOME")
 	private Double income;
+	@Column(name="TOTAL_OUTCOME")
 	private Double totalOutcome;
+	@Column(name="RESIDU")
 	private Double residu;
+	@Column(name="DATE")
 	private Date date;
-	private Integer status;
+	@Column(name="STATUS")
+	private String status;
 	public String getIdHeader() {
 		return idHeader;
 	}
@@ -40,10 +53,10 @@ public class ExpenditureHeader {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Integer getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	

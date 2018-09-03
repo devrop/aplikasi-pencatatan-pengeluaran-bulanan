@@ -1,19 +1,33 @@
 package com.eintrusty.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TABLE_EXPENDITURE_DETAIL")
 public class ExpenditureDetail {
-	private Integer idDetail;
+	@Id
+	@Column(name="ID_DETAIL")
+	private String idDetail;
+	@Column(name="ID_HEADER")
 	private String idHeader;
+	@Column(name="NAME_EXPENDITURE")
 	private String nameExpenditure;
+	@Column(name="TOTAL_SPENDING_MONEY")
 	private Double totalSpendingMoney;
+	@Column(name="NOTES")
 	private String notes;
-	private Integer status;
+	@Column(name="STATUS")
+	private String status;
 	
 	public ExpenditureDetail() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ExpenditureDetail(Integer idDetail, String idHeader, String nameExpenditure, Double totalSpendingMoney,
-			String notes, Integer status) {
+	public ExpenditureDetail(String idDetail, String idHeader, String nameExpenditure, Double totalSpendingMoney,
+			String notes, String status) {
 		super();
 		this.idDetail = idDetail;
 		this.idHeader = idHeader;
@@ -22,10 +36,10 @@ public class ExpenditureDetail {
 		this.notes = notes;
 		this.status = status;
 	}
-	public Integer getIdDetail() {
+	public String getIdDetail() {
 		return idDetail;
 	}
-	public void setIdDetail(Integer idDetail) {
+	public void setIdDetail(String idDetail) {
 		this.idDetail = idDetail;
 	}
 	public String getIdHeader() {
@@ -52,10 +66,10 @@ public class ExpenditureDetail {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	public Integer getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	
